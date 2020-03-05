@@ -1,120 +1,1 @@
-# 简介
-
-![Melody](/min-melody-logo.png)
-
-_Melody_ 是一个高性能的开源API网关。
-
-它的核心功能是创建一个API，将许多微服务聚合到单个端点中，为您自动完成繁重的工作：聚合、转换、过滤、解码、限制、身份验证等等。
-
-_Melody_ 不需要编程，因为它提供了一种声明性的方法来创建端点。它具有良好的结构和层次，可以使用社区或内部开发的即插即用中间件扩展其功能。
-
-_Melody_ 专注于成为一个纯粹的API网关，而不是连接到HTTP传输层。
-
-## 为什么需要API网关
-
-当API内容的使用者（特别是在microservices中）查询后端服务时，实现会因其microservices响应的大小和复杂性而承受很大的复杂性和负担。
-
-_Melody_ 是一个API网关，位于客户机和所有源服务器之间，添加了一个新的层，该层消除了客户机的所有复杂性，只为他们提供UI所需的信息。
-
-_Melody_ 充当多个源到单个端点的聚合器，允许您对响应进行分组、包装、转换和收缩。此外，它还支持多种中间件和插件，允许您扩展功能，例如添加OAuth授权或安全层（SSL、证书、HTTP严格传输安全、点击劫持保护、HTTP公钥固定、MIME嗅探保护、XSS保护）。
-
-_Melody_ 是在Go中编写的，支持多个平台，并基于KrakenD框架。
-
-## 举个例子
-
-移动开发人员需要构建一个单独的首页，该首页需要从多个呼叫到其后端服务的数据，例如：
-```
-api.store.server/products
-api.store.server/marketing-promos
-api.users.server/users/{id_user}
-api.users.server/shopping-cart/{id_user}
-```
-屏幕很简单，只需要从4个不同的源检索数据，等待往返，然后从响应中只选择几个字段。移动客户端不必进行这些调用，而是可以将单个端点调用给_Melody_ ：
-```
-melody.server/frontpage/{id_user}
-```
-
-整个过程变成了这样：
-
-
-通过选择此实现，移动客户端将自己与后端实现隔离。每当后端更改配置时，移动客户端的API配置不用改变，并且通过简单的配置更改来更新网关。
-
-同时，后端生成的数据量与最终传输到客户端的数据量之间存在大小差异。
-
-## 安装Melody
-
-### 下载二进制文件
-_Melody_ 使用go编写，build之后是单个二进制文件，无需任何依赖，所以你可以直接前往下载[Melody1.0](https://github.com/granty1/melody/releases/tag/v1.0)
-
-### 通过源码编译
-
-首先git你应该安装好
-```shell
-git clone git@github.com:granty1/melody.git
-```
-这样 _Melody_ 的全部代码就已经拉取到了你的本地
-
-执行编译命令
-```shell
-make build
-```
-在你的目录下会多出一个二进制文件`melody`，如果是windows环境会多出`melody.exe`
-
-
-## 使用Melody
-
-_Melody_ 使用起来非常简单。它只要求您传递配置文件的路径（定义行为和端点）。另外，您可以使用-d标志启用调试，这几乎就是所有的命令。
-
-使用终结点定义生成配置文件。生成它的简单方法是使用[Melody Designer](https://github.com/granty1/melody)
-
-获取到的配置文件应该像这样[melody.json](https://github.com/granty1/melody/blob/v1.0/melody.json)
-
-通过`check`命令去检察你的配置文件格式是否存在问题
-```shell
-./melody check -c melody.json -d
-```
-
-启动 _Melody_
-
-```shell
-./melody run -c melody.json -d
-```
-
-### 详细命令
-
-```shell
-
-███╗   ███╗███████╗██╗      ██████╗ ██████╗ ██╗   ██╗
-████╗ ████║██╔════╝██║     ██╔═══██╗██╔══██╗╚██╗ ██╔╝
-██╔████╔██║█████╗  ██║     ██║   ██║██║  ██║ ╚████╔╝ 
-██║╚██╔╝██║██╔══╝  ██║     ██║   ██║██║  ██║  ╚██╔╝  
-██║ ╚═╝ ██║███████╗███████╗╚██████╔╝██████╔╝   ██║   
-╚═╝     ╚═╝╚══════╝╚══════╝ ╚═════╝ ╚═════╝    ╚═╝   
-                                                     
-Version:1.0.0
-
-Melody help you to sort out your complex api
-
-Usage:
-  melody [command]
-
-Available Commands:
-  check       check that the config
-  graph       generate graph of melody server
-  help        Help about any command
-  run         run the Melody server
-
-Flags:
-  -c, --config string   Path of the melody.json
-  -d, --debug           Enable the Melody debug
-  -h, --help            help for melody
-
-Use "melody [command] --help" for more information about a command.
-```
-
-_Melody_ 提供了四个命令供您使用:
-
-- `melody check ` (检察配置文件内容格式是否正确)
-- `melody graph`  (根据配置文件生成有向图，预览网关结构)
-- `melody help`   (查看帮助)
-- `melody run`	  (运行网关)
+# 简介![Melody](/min-melody-logo.png)_Melody_ 是一个高性能的开源API网关。它的核心功能是创建一个API，将许多微服务聚合到单个端点中，为您自动完成繁重的工作：聚合、转换、过滤、解码、限制、身份验证等等。_Melody_ 不需要编程，因为它提供了一种声明性的方法来创建端点。它具有良好的结构和层次，可以使用社区或内部开发的即插即用中间件扩展其功能。_Melody_ 专注于成为一个纯粹的API网关，而不是连接到HTTP传输层。## 为什么需要API网关当API内容的使用者（特别是在microservices中）查询后端服务时，实现会因其microservices响应的大小和复杂性而承受很大的复杂性和负担。_Melody_ 是一个API网关，位于客户机和所有源服务器之间，添加了一个新的层，该层消除了客户机的所有复杂性，只为他们提供UI所需的信息。_Melody_ 充当多个源到单个端点的聚合器，允许您对响应进行分组、包装、转换和收缩。此外，它还支持多种中间件和插件，允许您扩展功能，例如添加OAuth授权或安全层（SSL、证书、HTTP严格传输安全、点击劫持保护、HTTP公钥固定、MIME嗅探保护、XSS保护）。_Melody_ 是在Go中编写的，支持多个平台，并基于KrakenD框架。## 举个例子移动开发人员需要构建一个单独的首页，该首页需要从多个呼叫到其后端服务的数据，例如：```api.store.server/productsapi.store.server/marketing-promosapi.users.server/users/{id_user}api.users.server/shopping-cart/{id_user}```屏幕很简单，只需要从4个不同的源检索数据，等待往返，然后从响应中只选择几个字段。移动客户端不必进行这些调用，而是可以将单个端点调用给_Melody_ ：```melody.server/frontpage/{id_user}```整个过程变成了这样：通过选择此实现，移动客户端将自己与后端实现隔离。每当后端更改配置时，移动客户端的API配置不用改变，并且通过简单的配置更改来更新网关。同时，后端生成的数据量与最终传输到客户端的数据量之间存在大小差异。## 安装Melody### 下载二进制文件_Melody_ 使用go编写，build之后是单个二进制文件，无需任何依赖，所以你可以直接前往下载[Melody1.0](https://github.com/granty1/melody/releases/tag/v1.0)### 通过源码编译首先git你应该安装好```shellgit clone git@github.com:granty1/melody.git```这样 _Melody_ 的全部代码就已经拉取到了你的本地执行编译命令```shellmake build```在你的目录下会多出一个二进制文件`melody`，如果是windows环境会多出`melody.exe`## 使用Melody_Melody_ 使用起来非常简单。它只要求您传递配置文件的路径（定义行为和端点）。另外，您可以使用-d标志启用调试，这几乎就是所有的命令。使用终结点定义生成配置文件。生成它的简单方法是使用[Melody Designer](https://github.com/granty1/melody)获取到的配置文件应该像这样[melody.json](https://github.com/granty1/melody/blob/v1.0/melody.json)通过`check`命令去检察你的配置文件格式是否存在问题```shell./melody check -c melody.json -d```启动 _Melody_```shell./melody run -c melody.json -d```### 详细命令```shell███╗   ███╗███████╗██╗      ██████╗ ██████╗ ██╗   ██╗████╗ ████║██╔════╝██║     ██╔═══██╗██╔══██╗╚██╗ ██╔╝██╔████╔██║█████╗  ██║     ██║   ██║██║  ██║ ╚████╔╝ ██║╚██╔╝██║██╔══╝  ██║     ██║   ██║██║  ██║  ╚██╔╝  ██║ ╚═╝ ██║███████╗███████╗╚██████╔╝██████╔╝   ██║   ╚═╝     ╚═╝╚══════╝╚══════╝ ╚═════╝ ╚═════╝    ╚═╝                                                        Version:1.0.0Melody help you to sort out your complex apiUsage:  melody [command]Available Commands:  check       check that the config  graph       generate graph of melody server  help        Help about any command  run         run the Melody serverFlags:  -c, --config string   Path of the melody.json  -d, --debug           Enable the Melody debug  -h, --help            help for melodyUse "melody [command] --help" for more information about a command.```_Melody_ 提供了四个命令供您使用:- `melody check ` (检察配置文件内容格式是否正确)- `melody graph`  (根据配置文件生成有向图，预览网关结构)- `melody help`   (查看帮助)- `melody run`	  (运行网关)
