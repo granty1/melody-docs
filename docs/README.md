@@ -12,5 +12,5 @@ features:
   details: Melody可以使用多种内容编码类型，包括:json、string、noop、rss、yaml、xml，甚至许客户端通过解析其Accept标头进行选择。
 - title: 安全机制
   details: 针对网关本身，Melody实现了集中安全策略，包括:主机白名单、点劫持保护、MIME嗅探预防、XSS防护，同时允许HSTS，未来将集成OAuth2。
-footer: MIT Licensed | Copyright © 20120 ❤️ Melody-Team
+footer: MIT Licensed | Copyright © 2020 ❤️ Melody-Team
 ---
