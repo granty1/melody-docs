@@ -1,6 +1,7 @@
 module.exports = {
     title: 'Melody',
     description: 'Document of Melody',
+    base: '/melody-docs/',
     themeConfig: {
         logo: '/melodylogo.png',
         nav: [
