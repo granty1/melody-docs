@@ -4,7 +4,7 @@
 
 要启动 _Melody_ ，您需要通过`run`命令配合配置文件，还可以指定端口（默认为8080）
 
-```shell
+```bash
 melody run -c melody.json
 // 或者
 melody run --config project/xxxx.json
@@ -13,14 +13,14 @@ melody run --config project/xxxx.json -p 8080
 ```
 
 如果你不提供任何的配置文件路径的话，_Melody_ 将会提醒您
-```shell
+```bash
 melody run
 
 > Please provide the path to your melody config file 
 ```
 
 在解析时遇到的问题或者配置上存在问题，_Melody_ 都会明确的指出
-```shell
+```bash
 
 melody run -c melody.json -d
 
@@ -248,7 +248,7 @@ Global Flags:
 ```
 
 去尝试检察语法是否正确
-```shell
+```bash
 melody check -c melody.json
 
 > Parsing configuration file: melody.json
@@ -257,7 +257,7 @@ Syntax OK!
 
 去掉上面配置文件中endpoint:`/get-person`下的所有backends
 
-```shell
+```bash
 // melody.json中的某个
 melody check -c melody.json 
 
@@ -268,9 +268,9 @@ ERROR parsing the configuration file.
 
 ### 启用调试
 
-依旧上上面的配置文件，不错这次我们通过Debug的方式来`check`
+依旧上上面的配置文件，不过这次我们通过Debug的方式来`check`
 
-```shell
+```bash
 melody check -c melody.json -d
 
 >
@@ -320,7 +320,7 @@ ERROR parsing the configuration file.
 
 但是要注意的是，因为绘图主要使用了[graphviz](http://www.graphviz.org)中的`dot`语言，所以在此之前你得确保你的机器上安装了[graphviz](http://www.graphviz.org)
 
-```shell 
+```bash 
 melody graph -h
 >
 ......
@@ -353,7 +353,7 @@ Global Flags:
 ```
 
 通过`-h`参数你可以清晰的看到这个命令的作用，以及用法，一般来说，只需要使用这条命令就足够了
-```shell
+```bash
 melody graph -c melody.json | dot -Tpng -o config.png
 ```
 
@@ -378,7 +378,7 @@ config.png
 ## Help
 
 查看帮助
-```shell
+```bash
 melody -h
 
 > 

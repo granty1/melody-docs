@@ -15,9 +15,11 @@ module.exports = {
                     collapsable: false,
                     sidebarDepth: 3,
                     children: [
-                    '',
-                    'configfile',
-                    'command'
+                    '',           // 简介
+                    'configfile', // 配置文件
+                    'command',    // 命令行
+                    'serverconfig',// 服务设置
+                    'endpoint', // 节点(Endpoint)
                     ]
                 },
                 {
