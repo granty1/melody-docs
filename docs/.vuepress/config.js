@@ -16,7 +16,8 @@ module.exports = {
                     sidebarDepth: 3,
                     children: [
                     '',
-                    'configfile'
+                    'configfile',
+                    'command'
                     ]
                 },
                 {
