@@ -425,8 +425,369 @@ Content-Length: 338
 {
 	"endpoints": [
 		{
-			"endpoint": "product"
+			"endpoint": "product",
+			"method": "GET",
+			"concurrent_calls": 3,
+			"backends": [
+				{
+					"url_pattern": "/foo",
+					"host": [
+						"https:api.melody.com:8000",
+						"https:api.melody.com:8001"
+					]
+				}
+			]
 		}
 	]
 }
 ```
+
+上面的实例中，当用户调用`/products`节点时，*Melody*打开三个与后端的连接，并且返回最快成功的响应
+
+### `concurrent_calls`应该设为多少？
+
+这个数字取决与服务的行为方式以及每种服务所拥有的的资源数量
+
+不过我们建议你使用`3`，因为3可以提供优异的结果，并且不需要增加您的资源
+
+### 工作效率如何？
+
+*Melody*最多向您的后端发送N个请求，收到第一个成功的响应后，*Melody*取消其余的所有请求，并且忽略之前的任何失败，仅在N个请求都失败的情况下，该节点请求才认为失败
+
+
+## 参数转发
+
+数据转发的默认策略如下：
+- 查询参数将不会被代理到后端
+- 请求头将不会被代理到后端
+- Cookie将不会被代理到后端
+
+您可以根据自己的需要去更改配置，并定义通过哪些元素
+
+### 可选查询参数
+
+默认情况下*Melody*不会讲任何查询字符串参数发送到后端，意味着，如果你只是简单配置了节点`/test?a=1&b=2`，没有其他的配置，节点下的所有后端都不会看到`a`或`b`
+
+可以通过在节点层级的`querystring_params`的配置，去声明你允许转发到后端的查询参数，该配置行为类似白名单：将`querystring_params`中的所有匹配的参数转发到后端，其余的参数丢弃。
+
+查询参数始终是可选的，您可以传递它们的子集、全部或不传
+
+例如，我们让参数`a`和`b`转发到后端
+```json
+{
+	"version": 1,
+	"port": 8000,
+	"endpoints": [
+		{
+			"endpoint": "/test",
+			"querystring_params": [
+				"a",
+				"b"
+			],
+			"backends": [
+				{
+					"url_pattern": "/t",
+					"host": [
+						"https://api.melody.com"
+					]
+				}
+			]
+		}
+	]
+}
+```
+
+使用此配置去启动*Melody*，发送请求`:8000/test?a=1&b=2&c=3`，后端将接受`a`和`b`，`c`将会被丢弃
+
+当然你可以配置放行所有查询参数，通过如下配置
+```json
+"querystring_params": [
+	"*"
+]
+```
+但是启用通配符可能会污染你的后端，因为最终用户或恶意攻击这发送的任何查询字符串都会通过网关并影响后面的的后端，我们的建议是让网关知道API定义中的查询字符串，并在列表中指定它们，即使列表很长，也不要使用通配符，一旦决定使用，请确保您的后端可以出来来自客户端的恶意参数。
+
+### 强制查询参数
+
+当您的后端需要查询字符串参数，并且它们在*Melody*或后端是必需的，可以通过在节点的URI上使用`{variables}`占位符，变量可以作为查询字符串参数的一部分注入后端，例如：
+```json
+{
+	"endpoint": "/test/{name}",
+	"backends": [
+		{
+			"url_pattern": "/t?name={name}",
+			"host": [
+				"https://api.melody.com"
+			]
+		}
+	]
+}
+```
+参数`name`是强制的，如果不提供的话，*Melody*会作出404的响应
+
+### 请求头转发
+
+*Melody*默认不会将请求头转发到后端，可以通过`headers_to_pass`去配置请求头白名单
+
+来自浏览器或移动客户端请求通常包含很多请求头，通常包括Host、Connection、Cache-Control、Cookie和很多很多。
+
+*Melody*默认仅会将下面这些转发给后端
+```json
+Accept-Encoding: gzip
+Host: localhost:8080
+User-Agent: Melody Version 1.0.0
+X-Forwarded-For: ::1
+```
+将客户端的`User-Agent`传到后端示例
+
+```json
+{
+	"version": 1,
+	"endpoints": [
+		{
+			"endpoint": "/test",
+			"headers_to_pass": [
+				"User-Agent"
+			],
+			"backends": [
+				{
+					"url_pattern": "/t",
+					"host": [
+						"https://api.melody.com"
+					]
+				}
+			]
+		}
+	]
+}
+```
+上述配置会导致后端接受到的请求头为
+```json
+Accept-Encoding: gzip
+Host: localhost:8080
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.5 Safari/605.1.15
+X-Forwarded-For: ::1
+```
+
+当然，你依旧可以通过配置通配符来放行所有的请求头
+```json
+"headers_to_pass": [
+	"*"
+]
+```
+
+### Cookie转发
+
+如果你想让Cookie传递的内容到达后端，您可以这样配置
+```json
+"headers_to_pass": [
+	"Cookie"
+]
+```
+
+## 调试节点
+
+当启动*Melody*的时候，加上参数`-d`可以开启Debug模式，该模式下，节点`/__debug`是可用的
+
+该调试节点可以作为伪造的后端，对于查看网关和后端之间的交互非常有用，因为它的处理是使用`DEBUG`日志级别在日志中打印
+
+在开发阶段，使用`/__debug`将*Melody*本身添加为另一个后端，这样您可以确切的看到后端接受的标题和查询字符串参数
+
+使用调试节点可以为你省去很多麻烦，因为当不存在特定的请求头或参数时，您的应用程序可能无法正常工作，也许您依靠的是客户端发送的内容而不是网关发送的内容
+
+例如，您的客户端可能正在发送`Content-Type`或`Accept`请求头，而这些请求头可能是后端正常运行所必需的，但是*Melody*默认不会放行这些请求头，通过调试节点，您可以轻松的重现调用和条件
+
+### 调试节点配置示例
+
+我们会测试以下节点:
+- `/default`：没有转发客户端请求头、查询字符串或Cookie
+- `/optional`：转发已经参数和请求头
+	- `a`和`b`作为查询参数
+	- `User-Agent`和`Accept`放行转发请求头
+- `/mandatory/{variable}`：将variable作为参数变量
+
+编写以下配置文件
+```json
+{
+	"version": 1,
+	"port": 8080,
+	"host": ["https://127.0.0.1"],
+	"endpoints": [
+		{
+			"endpoint": "/default",
+			"backends": [
+				{
+					"url_pattern": "/__debug/default"
+				}
+			]
+		},
+		{
+			"endpoint": "/optional",
+			"querystring_params": [
+				"a",
+				"b"
+			],
+			"headers_to_pass": [
+				"User-Agent",
+				"Accept"
+			],
+			"backends": [
+				{
+					"url_pattern": "/__debug/optional"
+				}
+			]
+		},
+		{
+			"endpoint": "/mandatory/{variable}",
+			"backends": [
+				{
+					"url_pattern": "/__debug/mandatory/{variable}"
+				}
+			]
+		}
+	]
+}
+```
+
+请求第一个接口`/default`
+```bash
+$ curl -i 'http://127.0.0.1:8080/default'
+```
+从log中可以看到，请求头中默认只有三个被转发到了后端
+```bash
+2020/03/07 09:13:54  DEBUG: Method: GET
+2020/03/07 09:13:54  DEBUG: URL: /__debug/default
+2020/03/07 09:13:54  DEBUG: Query: map[]
+2020/03/07 09:13:54  DEBUG: Params: [{param /default}]
+2020/03/07 09:13:54  DEBUG: Headers: map[Accept-Encoding:[gzip] User-Agent:[Melody Version 1.0.0] X-Forwarded-For:[127.0.0.1]]
+```
+
+请求第二个接口`/optional`
+```bash
+curl -i 'http://127.0.0.1:8080/optional?a=1&b=2'
+```
+可以明显看到在第二个请求中的配置生效，查询参数`a`和`b`都被放行，并且请求头中`User-Agent`变成了实际的值，`Accept`也被放行
+```bash
+2020/03/07 09:25:46  DEBUG: Method: GET
+2020/03/07 09:25:46  DEBUG: URL: /__debug/optional?&a=1&b=2
+2020/03/07 09:25:46  DEBUG: Query: map[a:[1] b:[2]]
+2020/03/07 09:25:46  DEBUG: Params: [{param /optional}]
+2020/03/07 09:25:46  DEBUG: Headers: map[Accept:[*/*] Accept-Encoding:[gzip] User-Agent:[curl/7.64.1] X-Forwarded-For:[127.0.0.1] X-Forwarded-Via:[Melody Version 1.0.0]]
+```
+
+请求第三个接口`/mandatory/{variable}`
+
+```bash
+curl -i `http://127.0.0.1:8080/mandatory/melody`
+```
+在后端的log中将URI参数`melody`参数转发到了后端
+```bash
+2020/03/07 09:29:16  DEBUG: Method: GET
+2020/03/07 09:29:16  DEBUG: URL: /__debug/mandatory/melody
+2020/03/07 09:29:16  DEBUG: Query: map[]
+2020/03/07 09:29:16  DEBUG: Params: [{param /mandatory/melody}]
+2020/03/07 09:29:16  DEBUG: Headers: map[Accept-Encoding:[gzip] User-Agent:[Melody Version 1.0.0] X-Forwarded-For:[127.0.0.1]]
+```
+
+## 节点安全
+
+*Melody*目前已经实现了集中安全策略该策略在`melody-httpsecure`模块控制，要启用他们，您只需要在节点级别的`extra_config`中配置即可
+
+像下面这样，就是一个完整的配置
+```json
+{
+	"version": 1,
+	"port": 8080,
+	"endpoints": [
+		{
+			"endpoint": "/secure",
+			"extra_config": {
+				"melody_httpsecure": {
+			    "allowed_hosts": [
+			      "host.known.com:443"
+			    ],
+			    "ssl_proxy_headers": {
+			      "X-Forwarded-Proto": "https"
+			    },
+			    "ssl_redirect": true,
+			    "ssl_host": "ssl.host.domain",
+			    "ssl_port": "443",
+			    "ssl_certificate": "/path/to/cert",
+			    "ssl_private_key": "/path/to/key",
+			    "sts_seconds": 300,
+			    "sts_include_subdomains": true,
+			    "frame_deny": true,
+			    "custom_frame_options_value": "ALLOW-FROM https://example.com",
+			    "hpkp_public_key": "pin-sha256=\"base64==\"; max-age=expireTime [; includeSubDomains][; report-uri=\"reportURI\"]",
+			    "content_type_nosniff": true,
+			    "browser_xss_filter": true,
+			    "content_security_policy": "default-src 'self';"
+			  }
+			}
+		}
+	]
+}
+```
+该配置描述了很多的选项，详细请继续看下去
+
+### 一般安全
+
+#### 主机连接限制
+
+通过`allowed_hosts`字段控制，该字段定义了*Melody*应该请求的主机白名单
+
+当请求到达*Melody*时，它会去确认请求头中的`Host`是否在白名单之中，如果存在，*Melody*则会进一步去处理请求，如果不存在白名单之中，*Melody*则会拒绝该请求
+
+在配置时，必须包括主机的标准域名以及端口号。当该字段为空时，默认可以请求任何主机
+
+#### 点劫持保护
+
+什么是[点劫持](https://github.com/granty1/melody/blob/master/docs/%E7%82%B9%E5%8A%AB%E6%8C%81%E4%BF%9D%E6%8A%A4.md)？
+
+通过`frame_deny`来控制是否在`frame`中拒绝任何来源
+
+当然你可以通过`custom_frame_options_value`去自定义哪些站点来源允许放到你的`frame`中
+
+比如
+```json
+"custom_frame_options_value": "ALLOW-FROM https://example.com",
+```
+这样的配置表示当资源来自于`https://exmaple.com`站点时，不会被屏蔽掉。
+
+更过请参阅[OWASP Clickjacking](https://owasp.org/www-project-cheat-sheets/cheatsheets/Clickjacking_Defense_Cheat_Sheet.html#X-Frame-Options_Header_Types)
+
+#### MIME嗅探防御
+
+什么是[MIME嗅探](https://github.com/granty1/melody/blob/master/docs/MIME嗅探防御.md)?
+
+可以通过`content_type_nosniff`来启用防御
+
+启用了此功能将防止用户的浏览器将文件解释为HTTP响应头中`Content-Type`类型所声明的以外的内容
+
+#### 跨站点脚本(XSS)防御
+
+通过`browser_xss_filter`来开启防御
+
+此功能主要是通过设置响应头中的`X-XSS-Protection`来启用用户浏览器中的[跨站点脚本(XSS)](https://owasp.org/www-community/attacks/xss/)筛选器
+
+### HTTPS
+
+#### HTTP严格传输安全(HSTS)
+
+什么是[HSTS](https://github.com/granty1/melody/blob/master/docs/%E5%85%B3%E4%BA%8EHTTP%E4%B8%A5%E6%A0%BC%E4%BC%A0%E8%BE%93%E5%AE%89%E5%85%A8.md)？
+
+通过`sts_seconds`控制
+
+设置响应头中的`Strict-Transport-Security`字段，自定义最大使用期限来启用此策略，设置为`0`表示禁用HSTS
+
+#### HTTP公钥固定(HPKP)
+
+什么是[HTTP公钥固定](https://github.com/granty1/melody/blob/master/docs/HTTP%E5%85%AC%E9%92%A5%E5%9B%BA%E5%AE%9A.md)?
+
+通过`hpkp_public_key`
+
+### OAuth2
+
+开发中。。。
+
+
