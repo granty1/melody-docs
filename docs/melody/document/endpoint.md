@@ -790,4 +790,110 @@ curl -i `http://127.0.0.1:8080/mandatory/melody`
 
 开发中。。。
 
+## 泛化调用
 
+*Melody*支持使用JSON及其他内容编码将响应消息返回客户端
+
+### 支持的编码
+
+*Melody*可以使用多种内容类型，甚至允许客户端选择如何编码内容，`output_encoding`可以为每个节点选择以下策略:
+- `json` 节点始终以JSON格式返回响应
+- `negotiate` 允许客户端通过解析`Accept`头进行选择，*Melody*可以返回：
+	- `json`
+	- `xml`
+	- `rss`
+	- `yaml`
+- `string` 将整个响应以字符串返回给客户端
+- `no-op` 不做任何操作，无编码、解码
+
+每个节点都可以定义使用的编码策略，如下面配置所示，当`output_encoding`省略时，*Melody*会默认使用JSON
+```json
+{
+	"version": 1,
+	"endpoints": [
+		{
+			"endpoint": "/a",
+			"output_encoding": "negotiate",
+			"backends": [
+				{
+					"url_pattern": "/a"
+				}
+			]
+		},
+		{
+			"endpoint": "/b",
+			"output_encoding": "string",
+			"backends": [
+				{
+					"url_pattern": "/b"
+				}
+			]
+		},
+		{
+			"endpoint": "/c",
+			"backends": [
+				{
+					"url_pattern": "/c"
+				}
+			]
+		}
+	]
+}
+```
+
+节点`/c`没有定义任何编码配置，默认将使用JSON
+
+## 无操作代理
+
+*Melody*中的`no-op`是一种特殊的编码类型，它将后端的响应原样返回给客户端
+
+### 使用`no-op`代理
+
+当你设置了`no-op`，*Melody*不会检察请求的body或以任何方式进行处理。*Melody*接收到设置了`no-op`的请求时，它会直接将其代理到后端，不会进行任何其他操作。
+
+但是注意的是，不进行任何操作，也就是说不会有数据合并、过滤那些操作，所以此时的节点只能声明对应一个后端，多个则不会生效
+
+但是从客户端到*Melody*这一段任然是可行的，所以速率限制或者要求JWT授权的一些策略依然生效
+
+当然你需要知道`no-op`的作用是？
+- *Melody*的节点像常规代理一样工作
+- 路由部分的功能策略是可用的
+- 某些功能被禁用，比如响应合并、过滤、操作、检察、并发等
+- 放行的请求头你仍然需要去设置，因为这个是在路由层面做的，通过`header_to_passs`进行设置
+- 后端的响应将不会做任何处理直接返回客户端
+- 节点和后端必须是一对一关系
+
+### 什么时候需要`no-op`
+
+1. 当你想将一个后端返回的`Cookie`直接设置到客户端
+1. 你需要维护后端响应的所有响应头
+
+### 如何使用`no-op`
+
+`no-op`可以设置在节点层级上，也可以设置在后端层级上
+
+- 在节点层级，`"output_encoding": "no-op"`
+- 在后端层级，`"encoding": "no-op"`
+
+配置示例
+
+```json {6}
+{
+	"version": 1,
+	"endpoints": [
+		{
+			"endpoint": "/url",
+			"output_encoding": "no-op",
+			"backends": [
+				{
+					"url_pattern": "/backend",
+					"encoding": "no-op",
+					"host": [
+						"127.0.0.1"
+					]
+				}
+			]
+		}
+	]
+}
+```
