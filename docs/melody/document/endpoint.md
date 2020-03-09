@@ -897,3 +897,127 @@ curl -i `http://127.0.0.1:8080/mandatory/melody`
 	]
 }
 ```
+
+
+## 链式代理
+
+![链式请求](/melody-docs/sequential_proxy.png)
+
+有时候你的需求可能是从第一个请求的响应中拿数据再去进行第二个请求，或者延迟的后端调用，链式代理可以满足你的需求
+
+### 使用链式代理
+
+启用链式代理，只需要在配置文件的额外配置中声明即可
+```json {9}
+{
+	"version": 1,
+	"port": 8000,
+	"endpoints": [
+		{
+		  "endpoint": "/findone/{name}",
+		  "extra_config": {
+		    "melody_proxy": {
+		      "sequential": true
+		    }
+		  },
+		  "output_encoding": "json",
+		  "backends": [
+			    {
+			      "url_pattern": "/user/{name}",
+			      "group": "base_info",
+			      "host": [
+			        "127.0.0.1:8001"
+			      ]
+			    },
+			    {
+			      "url_pattern": "/role/{resp0_base_info.role_id}",
+			      "encoding": "json",
+			      "group": "role_info",
+			      "host": [
+			        "127.0.0.1:8001"
+			      ]
+			    }
+			]
+		}
+	]
+}
+```
+
+当启用了链式代理之后，你可以在第一个后端之外的后端配置上使用表达式`{respn_m.k}`
+- `n`表示后端的下标，从0开始
+- `m`表示响应中结构体的层级
+- `k`表示具体取用哪个字段
+
+### 示例
+
+通过*Melody*启动上述配置文件，准备好两个后端`/user/{name}`和`/role/{id}`
+
+执行
+```bash
+curl -i http://127.0.0.1:8000/findone/Grant
+```
+
+*Melody*会先去执行第一个请求
+```bash
+curl - i http://127.0.0.1:8001/user/Grant
+```
+
+得到的响应
+```json
+{
+    "name": "Grant",
+    "id": 1,
+    "role_id": 1
+}
+```
+
+由于配置了`group`，所以结果会被包装成
+```json
+{
+	"base_info": {
+	    "name": "Grant",
+	    "id": 1,
+	    "role_id": 1
+	}
+}
+```
+
+第二个后端配置回去解析`url_pattern`中的表达式`resp0_base_info.role_id`，表示第一个后端响应的`base_info`对象中的`role_id`字段，于是取到了`"role_id": 1`
+
+然后再去请求第二个后端
+```bash
+curl -i http://127.0.0.1:8001/role/1
+```
+得到响应
+```json
+{
+    "id": 1,
+    "name": "Administrator"
+}
+```
+
+第二个后端配置也声明了`group`，所以响应会被组装成
+```json
+{
+	"role_info": {
+		"id": 1,
+    	"name": "Administrator"
+	}
+}
+```
+
+最终整个大的代理会将两次子代理的响应整合
+
+```json
+{
+    "base_info": {
+        "id": 1,
+        "name": "Grant",
+        "role_id": 1
+    },
+    "role_info": {
+        "id": 1,
+        "name": "Administrator"
+    }
+}
+```
