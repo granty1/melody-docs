@@ -4,7 +4,7 @@
 set -e
 
 # 生成静态文件
-npm install @vuepress-reco/theme-cli -g
+npm install @vuepress-reco/theme-cli
 npm run build
 
 # 进入生成的文件夹
