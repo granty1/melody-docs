@@ -2,18 +2,20 @@ module.exports = {
     title: 'Melody',
     description: 'Document of Melody',
     base: '/melody-docs/',
+    theme: 'reco',
     themeConfig: {
+        author: 'Melody Team',
         logo: '/melodylogo.png',
         nav: [
-            {text: "使用文档", link: "/melody/document/"},
-            {text: "Github", link: "https://github.com/granty1/melody"},
+            {text: "使用文档", link: "/melody/document/", icon: "reco-document"},
+            {text: "Github", link: "https://github.com/granty1/melody", icon: "reco-github"},
         ],
         sidebar: {
             '/melody/document/': [
                 {
                     title: '使用文档',
                     collapsable: false,
-                    sidebarDepth: 3,
+                    sidebarDepth: 2,
                     children: [
                     '',           // 简介
                     'configfile', // 配置文件
@@ -25,6 +27,7 @@ module.exports = {
                 {
                     title: '插件扩展',
                     collapsable: false,
+                    sidebarDepth: 2,
                     children: [
                     
                     ]
@@ -32,6 +35,7 @@ module.exports = {
                 {
                     title: '问题反馈',
                     collapsable: false,
+                    sidebarDepth: 2,
                     children: [
                     
                     ]
