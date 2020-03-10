@@ -2,13 +2,12 @@ module.exports = {
     title: 'Melody',
     description: 'Document of Melody',
     base: '/melody-docs/',
-    theme: 'reco',
     themeConfig: {
         author: 'Melody Team',
         logo: '/melodylogo.png',
         nav: [
-            {text: "使用文档", link: "/melody/document/", icon: "reco-document"},
-            {text: "Github", link: "https://github.com/granty1/melody", icon: "reco-github"},
+            {text: "使用文档", link: "/melody/document/"},
+            {text: "Github", link: "https://github.com/granty1/melody"},
         ],
         sidebar: {
             '/melody/document/': [
