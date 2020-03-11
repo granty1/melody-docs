@@ -36,9 +36,9 @@ _Melody_ 节点是重要的组成部分，用户最终使用的其实就是这�
 - `method`：必须大写，`GET`、`POST`、`PUT`、`DELETE`
 - `backends`：该节点对应的后端对象列表
 - `extra_config`：该节点额外需要执行的组件或中间件配置
-- `querystring_params`：[查询参数](##查询参数)
-- `headers_to_pass`：[请求头转发](##请求头转发)
-- `concurrent_calls`：[并发请求](##并发请求)
+- `querystring_params`：[查询参数](#可选查询参数)
+- `headers_to_pass`：[请求头转发](#请求头转发)
+- `concurrent_calls`：[并发请求](#并发请求)
 
 ### 同种资源的多种请求方法
 

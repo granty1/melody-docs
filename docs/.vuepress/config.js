@@ -21,6 +21,7 @@ module.exports = {
                     'command',    // 命令行
                     'serverconfig',// 服务设置
                     'endpoint', // 节点(Endpoint)
+                    'backend', // 后端(Backend)
                     ]
                 },
                 {
