@@ -1,5 +1,5 @@
 module.exports = {
-    title: 'Melody',
+    title: 'Melody Docs',
     description: 'Document of Melody',
     base: '/melody-docs/',
     themeConfig: {
