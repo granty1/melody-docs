@@ -16,9 +16,7 @@ melody run -c example.json -d
 
 _Melody Designer_ 是一个简单的javascript应用程序，它帮助您了解API网关的功能，并帮助您为所有不同的选项设置不同的值。使用此选项不需要从头学习和编写所有属性名。可以随时下载配置文件并重新加载以继续编辑。
 
-_Melody Designer_ 是一个纯静态页面，它不会将您的任何配置发送到其他地方，正如我们所有的软件一样，它也是开源的，您可以下载它并在自己的web服务器上运行它。请参阅Krakendesigner存储库。
-
-立即[生成配置](https://github.com/granty1/melody)
+立即[生成配置](https://granty1.github.com/melody-config/)
 
 ## 验证配置
 
