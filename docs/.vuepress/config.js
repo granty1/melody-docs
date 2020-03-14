@@ -2,6 +2,9 @@ module.exports = {
     title: 'Melody Docs',
     description: 'Document of Melody',
     base: '/melody-docs/',
+    head: [
+        ['link', { rel: 'shortcut icon', type: "image/x-icon", href: '/melody-docs/favicon.ico'}]
+    ],
     themeConfig: {
         author: 'Melody Team',
         logo: '/melodylogo.png',
