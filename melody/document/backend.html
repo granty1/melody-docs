@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>后端(Backend) | Melody Docs</title>
+    <meta name="description" content="Document of Melody">
+    <meta name="generator" content="VuePress 1.3.1">
+    <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico">
+    
+    <link rel="preload" href="/melody-docs/assets/css/0.styles.3e118cc4.css" as="style"><link rel="preload" href="/melody-docs/assets/js/app.3212779a.js" as="script"><link rel="preload" href="/melody-docs/assets/js/2.2ab4c226.js" as="script"><link rel="preload" href="/melody-docs/assets/js/7.f72097ed.js" as="script"><link rel="prefetch" href="/melody-docs/assets/js/10.c8e4c137.js"><link rel="prefetch" href="/melody-docs/assets/js/11.7080f4c3.js"><link rel="prefetch" href="/melody-docs/assets/js/12.0c1b38da.js"><link rel="prefetch" href="/melody-docs/assets/js/3.f3e75938.js"><link rel="prefetch" href="/melody-docs/assets/js/4.9f8e46ef.js"><link rel="prefetch" href="/melody-docs/assets/js/5.b5081581.js"><link rel="prefetch" href="/melody-docs/assets/js/6.f2d2f945.js"><link rel="prefetch" href="/melody-docs/assets/js/8.fb0fdc5b.js"><link rel="prefetch" href="/melody-docs/assets/js/9.0ed554d7.js">
+    <link rel="stylesheet" href="/melody-docs/assets/css/0.styles.3e118cc4.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/melody-docs/" class="home-link router-link-active"><img src="/melody-docs/melodylogo.png" alt="Melody Docs" class="logo"> <span class="site-name can-hide">Melody Docs</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/melody-docs/melody/document/" class="nav-link router-link-active">
+  使用文档
+</a></div><div class="nav-item"><a href="https://github.com/granty1/melody" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/melody-docs/melody/document/" class="nav-link router-link-active">
+  使用文档
+</a></div><div class="nav-item"><a href="https://github.com/granty1/melody" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>使用文档</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/melody-docs/melody/document/" class="sidebar-link">简介</a></li><li><a href="/melody-docs/melody/document/configfile.html" class="sidebar-link">配置文件</a></li><li><a href="/melody-docs/melody/document/command.html" class="sidebar-link">命令行</a></li><li><a href="/melody-docs/melody/document/serverconfig.html" class="sidebar-link">服务设置</a></li><li><a href="/melody-docs/melody/document/endpoint.html" class="sidebar-link">节点(Endpoint)</a></li><li><a href="/melody-docs/melody/document/backend.html" class="active sidebar-link">后端(Backend)</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/melody-docs/melody/document/backend.html#概述" class="sidebar-link">概述</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/melody-docs/melody/document/backend.html#举个栗子" class="sidebar-link">举个栗子</a></li></ul></li><li class="sidebar-sub-header"><a href="/melody-docs/melody/document/backend.html#数据处理" class="sidebar-link">数据处理</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/melody-docs/melody/document/backend.html#数据过滤" class="sidebar-link">数据过滤</a></li><li class="sidebar-sub-header"><a href="/melody-docs/melody/document/backend.html#分组-group" class="sidebar-link">分组(group)</a></li><li class="sidebar-sub-header"><a href="/melody-docs/melody/document/backend.html#映射-mapping" class="sidebar-link">映射(mapping)</a></li><li class="sidebar-sub-header"><a href="/melody-docs/melody/document/backend.html#目标提取" class="sidebar-link">目标提取</a></li><li class="sidebar-sub-header"><a href="/melody-docs/melody/document/backend.html#集合操作-collections" class="sidebar-link">集合操作(collections)</a></li></ul></li><li class="sidebar-sub-header"><a href="/melody-docs/melody/document/backend.html#代理限速" class="sidebar-link">代理限速</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/melody-docs/melody/document/backend.html#maxrate-vs-clientmaxrate" class="sidebar-link">maxRate Vs clientMaxRate</a></li></ul></li><li class="sidebar-sub-header"><a href="/melody-docs/melody/document/backend.html#断路器" class="sidebar-link">断路器</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/melody-docs/melody/document/backend.html#怎样运行？" class="sidebar-link">怎样运行？</a></li><li class="sidebar-sub-header"><a href="/melody-docs/melody/document/backend.html#断路器的三种状态" class="sidebar-link">断路器的三种状态</a></li><li class="sidebar-sub-header"><a href="/melody-docs/melody/document/backend.html#断路器状态转换示意图" class="sidebar-link">断路器状态转换示意图</a></li><li class="sidebar-sub-header"><a href="/melody-docs/melody/document/backend.html#配置断路器" class="sidebar-link">配置断路器</a></li></ul></li><li class="sidebar-sub-header"><a href="/melody-docs/melody/document/backend.html#编码支持" class="sidebar-link">编码支持</a></li><li class="sidebar-sub-header"><a href="/melody-docs/melody/document/backend.html#节点镜像" class="sidebar-link">节点镜像</a></li><li class="sidebar-sub-header"><a href="/melody-docs/melody/document/backend.html#数组操作" class="sidebar-link">数组操作</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/melody-docs/melody/document/backend.html#运作方式" class="sidebar-link">运作方式</a></li><li class="sidebar-sub-header"><a href="/melody-docs/melody/document/backend.html#参考表" class="sidebar-link">参考表</a></li></ul></li></ul></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>插件扩展</span> <!----></p> <!----></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>问题反馈</span> <!----></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="后端-backend"><a href="#后端-backend" class="header-anchor">#</a> 后端(Backend)</h1> <h2 id="概述"><a href="#概述" class="header-anchor">#</a> 概述</h2> <p>后端是指真正的服务器所暴露出来的接口，它提供了节点所需要的数据。</p> <p>后端可以是任何服务器。只要<em>Melody</em>能访问到他，比如，您可以创建从内部服务器获取数据的端点，并通过外部API（例如GitHub,Facebool或其他服务）添加第三方数据来丰富节点</p> <p>后端的配置在每个节点的<code>backends</code>属性中声明</p> <h3 id="举个栗子"><a href="#举个栗子" class="header-anchor">#</a> 举个栗子</h3> <p>下面的配置中，<em>Melody</em>提供了一个节点<code>/v1/user</code>，当你请求该节点时，第二个后端配置毫无疑问，<em>Melody</em>会帮你做出代理请求<code>&quot;http://api-01.com/roles&quot;</code>，但在第一个后端配置中提供了多个<code>host</code>，<em>Melody</em>则会帮你做负载均衡，每次选择最优的主机去代理请求。</p> <div class="language-json line-numbers-mode"><pre class="language-json"><code><span class="token punctuation">{</span>
+	<span class="token property">&quot;version&quot;</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+	<span class="token property">&quot;endpoints&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+		<span class="token punctuation">{</span>
+			<span class="token property">&quot;endpoint&quot;</span><span class="token operator">:</span> <span class="token string">&quot;/v1/name&quot;</span><span class="token punctuation">,</span>
+			<span class="token property">&quot;method&quot;</span><span class="token operator">:</span> <span class="token string">&quot;GET&quot;</span><span class="token punctuation">,</span>
+			<span class="token property">&quot;backends&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+				<span class="token punctuation">{</span>
+					<span class="token property">&quot;url_pattern&quot;</span><span class="token operator">:</span> <span class="token string">&quot;/name&quot;</span><span class="token punctuation">,</span>
+					<span class="token property">&quot;host&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+						<span class="token string">&quot;http://api-01.com&quot;</span><span class="token punctuation">,</span>
+						<span class="token string">&quot;http://api-02.com&quot;</span>
+					<span class="token punctuation">]</span>
+				<span class="token punctuation">}</span><span class="token punctuation">,</span>
+				<span class="token punctuation">{</span>
+					<span class="token property">&quot;url_pattern&quot;</span><span class="token operator">:</span> <span class="token string">&quot;/roles&quot;</span><span class="token punctuation">,</span>
+					<span class="token property">&quot;host&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+						<span class="token string">&quot;http://api-01.com&quot;</span>
+					<span class="token punctuation">]</span>
+				<span class="token punctuation">}</span>
+			<span class="token punctuation">]</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br></div></div><h2 id="数据处理"><a href="#数据处理" class="header-anchor">#</a> 数据处理</h2> <h3 id="数据过滤"><a href="#数据过滤" class="header-anchor">#</a> 数据过滤</h3> <p>配置<em>Melody</em>节点时，您可以决定仅显示来自后端响应的字段子集，或更改返回的响应内容的结构，这个功能强烈推荐使用它来节省带宽</p> <p>您可以使用以下两种策略来过滤内容：</p> <ul><li>黑名单</li> <li>白名单</li></ul> <h4 id="黑名单"><a href="#黑名单" class="header-anchor">#</a> 黑名单</h4> <p>配置了黑名单之后，<em>Melody</em>将从响应中删除列表中定义的所有匹配的字段，并将返回不匹配的字段。通过黑名单，可以排除响应中的某些字段。</p> <p>黑名单的配置非常简单，只需要在<code>banckend</code>层级下配置<code>blacklist</code>数组即可，例如：</p> <div class="language-json line-numbers-mode"><pre class="language-json"><code><span class="token punctuation">{</span>
+	<span class="token property">&quot;endpoint&quot;</span><span class="token operator">:</span> <span class="token string">&quot;/v1/user&quot;</span><span class="token punctuation">,</span>
+	<span class="token property">&quot;backends&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+		<span class="token punctuation">{</span>
+			<span class="token property">&quot;url_pattern&quot;</span><span class="token operator">:</span> <span class="token string">&quot;/back&quot;</span><span class="token punctuation">,</span>
+			<span class="token property">&quot;blacklist&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+				<span class="token string">&quot;token&quot;</span><span class="token punctuation">,</span>
+				<span class="token string">&quot;password&quot;</span>
+			<span class="token punctuation">]</span><span class="token punctuation">,</span>
+			<span class="token property">&quot;host&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+				<span class="token string">&quot;http://api.com&quot;</span>
+			<span class="token punctuation">]</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><p>上述配置将会过滤掉<code>token</code>和<code>password</code>两个字段</p> <p>并且注意<strong>在配置<code>blacklist</code>时，不需要考虑到分组<code>group</code></strong></p> <p>但是<strong>需要考虑到是否配置了目标<code>target</code>，如果配置了目标<code>target</code>，则需要注意黑名单中配置的字段应该以<code>target</code>为根级别</strong></p> <h4 id="白名单"><a href="#白名单" class="header-anchor">#</a> 白名单</h4> <p>配置了白名单之后，<em>Melody</em>仅会返回响应体中与白名单中匹配的字段和对应值，使用白名单将严格定义响应的内容。示例：</p> <div class="language-json line-numbers-mode"><pre class="language-json"><code><span class="token punctuation">{</span>
+	<span class="token property">&quot;endpoint&quot;</span><span class="token operator">:</span> <span class="token string">&quot;/v1/user&quot;</span><span class="token punctuation">,</span>
+	<span class="token property">&quot;backends&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+		<span class="token punctuation">{</span>
+			<span class="token property">&quot;url_pattern&quot;</span><span class="token operator">:</span> <span class="token string">&quot;/back&quot;</span><span class="token punctuation">,</span>
+			<span class="token property">&quot;whitelist&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+				<span class="token string">&quot;name&quot;</span><span class="token punctuation">,</span>
+				<span class="token string">&quot;id&quot;</span>
+			<span class="token punctuation">]</span><span class="token punctuation">,</span>
+			<span class="token property">&quot;host&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+				<span class="token string">&quot;http://api.com&quot;</span>
+			<span class="token punctuation">]</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><p>上述配置将只会返回响应中的<code>name</code>和<code>id</code>字段</p> <p>白名单依然支持点字符</p> <h4 id="嵌套字符"><a href="#嵌套字符" class="header-anchor">#</a> 嵌套字符</h4> <p>当然如果你想过滤的字段并不是在最外层的结构中，他有可能被其他结构包裹，这时候你可以通过点运算符<code>.</code>去分割</p> <div class="language-json line-numbers-mode"><pre class="language-json"><code><span class="token punctuation">{</span>
+	<span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Grant&quot;</span><span class="token punctuation">,</span>
+	<span class="token property">&quot;age&quot;</span><span class="token operator">:</span> <span class="token number">23</span><span class="token punctuation">,</span>
+	<span class="token property">&quot;role&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+		<span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;admin&quot;</span><span class="token punctuation">,</span>
+		<span class="token property">&quot;uuid&quot;</span><span class="token operator">:</span> <span class="token string">&quot;xxxxx&quot;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><p>例如上述结构，你可以通过<code>role.uuid</code>过滤该字段</p> <div class="custom-block warning"><p class="custom-block-title">注意</p> <p>但是上述的点操作符只支持对象模式，如果有数组或集合结构，这种点操作符将不支持，你可以通过数组操作去处理</p></div> <h4 id="使用白名单还是黑名单？"><a href="#使用白名单还是黑名单？" class="header-anchor">#</a> 使用白名单还是黑名单？</h4> <p>白名单和黑名单这两种操作不能并存，只能二选一，如果两者都配置，</p> <p>从性能角度来看，黑名单的速度优于白名单</p> <h3 id="分组-group"><a href="#分组-group" class="header-anchor">#</a> 分组(group)</h3> <p><em>Melody</em>能将您的后端响应分组到不同的对象内，换句话说，当你为后端设置了<code>group</code>属性后，<em>Melody</em>不会将所有后端的请求直接合并到一起，而是会新建一个以<code>group</code>命名的对象，然后将该后端的响应填入该结构体，然后再将所有后端响应进行合并。</p> <p>当不同的厚度按相应可能具有冲突的键名时，比如两个后端响应同时包含<code>id</code>字段，这是你可以通过分别为这两个后端响应设置分组来解决这个冲突</p> <div class="custom-block warning"><p class="custom-block-title">注意</p> <p>对同一个节点下不同的后端设置分组时，不要设置相同的分组名，不然只会导致分组冲突，最终数据被覆盖。</p></div> <h4 id="分组示例"><a href="#分组示例" class="header-anchor">#</a> 分组示例</h4> <p>以下配置的是一个节点，该节点从两个不同的后端获取数据，但其中一个响应封装在分组<code>last_post</code>中</p> <div class="language-json line-numbers-mode"><div class="highlight-lines"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><div class="highlighted"> </div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div><pre class="language-json"><code><span class="token punctuation">{</span>
+	<span class="token property">&quot;version&quot;</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+	<span class="token property">&quot;port&quot;</span><span class="token operator">:</span> <span class="token number">8000</span><span class="token punctuation">,</span>
+	<span class="token property">&quot;endpoints&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+		<span class="token punctuation">{</span>
+	      <span class="token property">&quot;endpoint&quot;</span><span class="token operator">:</span> <span class="token string">&quot;/findone/{name}&quot;</span><span class="token punctuation">,</span>
+	      <span class="token property">&quot;method&quot;</span><span class="token operator">:</span> <span class="token string">&quot;GET&quot;</span><span class="token punctuation">,</span>
+	      <span class="token property">&quot;extra_config&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+	        <span class="token property">&quot;melody_proxy&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+	          <span class="token property">&quot;sequential&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span>
+	        <span class="token punctuation">}</span>
+	      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+	      <span class="token property">&quot;output_encoding&quot;</span><span class="token operator">:</span> <span class="token string">&quot;json&quot;</span><span class="token punctuation">,</span>
+	      <span class="token property">&quot;backends&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+	        <span class="token punctuation">{</span>
+	          <span class="token property">&quot;url_pattern&quot;</span><span class="token operator">:</span> <span class="token string">&quot;/user/{name}&quot;</span><span class="token punctuation">,</span>
+	          <span class="token property">&quot;group&quot;</span><span class="token operator">:</span> <span class="token string">&quot;base_info&quot;</span><span class="token punctuation">,</span>
+	          <span class="token property">&quot;method&quot;</span><span class="token operator">:</span> <span class="token string">&quot;GET&quot;</span><span class="token punctuation">,</span>
+	          <span class="token property">&quot;blacklist&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+	            <span class="token string">&quot;id&quot;</span>
+	          <span class="token punctuation">]</span><span class="token punctuation">,</span>
+	          <span class="token property">&quot;host&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+	            <span class="token string">&quot;http://api.com&quot;</span>
+	          <span class="token punctuation">]</span>
+	        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+	        <span class="token punctuation">{</span>
+	          <span class="token property">&quot;url_pattern&quot;</span><span class="token operator">:</span> <span class="token string">&quot;/role/{resp0_base_info.role_id}&quot;</span><span class="token punctuation">,</span>
+	          <span class="token property">&quot;method&quot;</span><span class="token operator">:</span> <span class="token string">&quot;GET&quot;</span><span class="token punctuation">,</span>
+	          <span class="token property">&quot;group&quot;</span><span class="token operator">:</span> <span class="token string">&quot;role_info&quot;</span><span class="token punctuation">,</span>
+	          <span class="token property">&quot;host&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+	            <span class="token string">&quot;http://api.com&quot;</span>
+	          <span class="token punctuation">]</span>
+	        <span class="token punctuation">}</span>
+	      <span class="token punctuation">]</span>
+	    <span class="token punctuation">}</span>
+	<span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre><div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br></div></div><p>调用接口<code>/findone/{name}</code></p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token function">curl</span> -i <span class="token string">&quot;http://localhost:8000/findone/Grant&quot;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>得到分组后的响应</p> <div class="language-json line-numbers-mode"><pre class="language-json"><code><span class="token punctuation">{</span>
+    <span class="token property">&quot;base_info&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Grant&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;role_id&quot;</span><span class="token operator">:</span> <span class="token number">1</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;role_info&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">&quot;id&quot;</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Administrator&quot;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><h3 id="映射-mapping"><a href="#映射-mapping" class="header-anchor">#</a> 映射(mapping)</h3> <p>映射可以理解为重命名，可以更改后端响应的结构中的字段名，通过这个功能来适配不同的客户端而不需要更改后端代码</p> <p>但是注意<strong>映射在<a href="#%E7%9B%AE%E6%A0%87%E6%8F%90%E5%8F%96">目标提取</a>和<a href="#%E6%95%B0%E6%8D%AE%E8%BF%87%E6%BB%A4">数据过滤</a>之后，请确保映射的时候要映射的字段是否存在</strong></p> <p>比如上述的响应中的<code>base_info.name</code>字段你并不想用<code>name</code>，而是想改为<code>user_name</code>，上面有提到只是在数据过滤和目标提取之后，但是在分组之前，所以不用去管他的上面是否还有一层分组</p> <div class="language-json line-numbers-mode"><div class="highlight-lines"><br><br><div class="highlighted"> </div><br><br><br><br><br><br><br><br></div><pre class="language-json"><code><span class="token punctuation">{</span>
+    <span class="token property">&quot;base_info&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Grant&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;role_id&quot;</span><span class="token operator">:</span> <span class="token number">1</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;role_info&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">&quot;id&quot;</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Administrator&quot;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><p>你只需要在<code>backend</code>层加上<code>mapping</code>配置</p> <div class="language-json line-numbers-mode"><div class="highlight-lines"><br><br><br><br><div class="highlighted"> </div><br><br><br><br><br><br><br><br><br><br></div><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">&quot;url_pattern&quot;</span><span class="token operator">:</span> <span class="token string">&quot;/user/{name}&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;group&quot;</span><span class="token operator">:</span> <span class="token string">&quot;base_info&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;method&quot;</span><span class="token operator">:</span> <span class="token string">&quot;GET&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;mapping&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;user_name&quot;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;blacklist&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token string">&quot;id&quot;</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;host&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token string">&quot;http://api.com&quot;</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre><div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><p>响应结果将会变成</p> <div class="language-json line-numbers-mode"><pre class="language-json"><code><span class="token punctuation">{</span>
+    <span class="token property">&quot;base_info&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">&quot;role_id&quot;</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;user_name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Grant&quot;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;role_info&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">&quot;id&quot;</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Administrator&quot;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><h3 id="目标提取"><a href="#目标提取" class="header-anchor">#</a> 目标提取</h3> <p>一般性在API中都会将数据封装在通用的结构中，例如<code>data</code>、<code>content</code>或者<code>response</code>，但是你并不希望每次都去获取子字段的数据，这时候你可以使用目标提取去获取你想要的字段，使之直接成为根级别的结构</p> <p>注意，<strong>目标提取发生在数据过滤发生在数据处理的最先阶段，发生在其他操作之前</strong></p> <p>目标提取通过<code>target</code>属性来进行配置，该属性在<code>backend</code>层级</p> <h4 id="目标提取示例"><a href="#目标提取示例" class="header-anchor">#</a> 目标提取示例</h4> <p>我们有这样的一个后端api：<code>/page</code>，返回的响应是一个JSON对象</p> <div class="language-json line-numbers-mode"><pre class="language-json"><code><span class="token punctuation">{</span>
+    <span class="token property">&quot;page&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">&quot;Name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Page&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;Url&quot;</span><span class="token operator">:</span> <span class="token string">&quot;hello.com&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;Title&quot;</span><span class="token operator">:</span> <span class="token string">&quot;title&quot;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p>但是我现在不想要<code>page</code>这一层，我想拿到的结果直接是<code>Name</code>、<code>Url</code>、<code>Title</code>作为根级别。可以通过下面的配置实现</p> <div class="language-json line-numbers-mode"><div class="highlight-lines"><br><br><br><br><br><br><br><div class="highlighted"> </div><br><br><br><br><br><br><br><br><br></div><pre class="language-json"><code><span class="token punctuation">{</span>
+	<span class="token property">&quot;endpoints&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+		<span class="token punctuation">{</span>
+			<span class="token property">&quot;endpoint&quot;</span><span class="token operator">:</span> <span class="token string">&quot;/newpage&quot;</span><span class="token punctuation">,</span>
+			<span class="token property">&quot;backends&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+				<span class="token punctuation">{</span>
+					<span class="token property">&quot;url_pattern&quot;</span><span class="token operator">:</span> <span class="token string">&quot;/page&quot;</span><span class="token punctuation">,</span>
+					<span class="token property">&quot;target&quot;</span><span class="token operator">:</span> <span class="token string">&quot;page&quot;</span><span class="token punctuation">,</span>
+					<span class="token property">&quot;host&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+						<span class="token string">&quot;http://api.com&quot;</span>
+					<span class="token punctuation">]</span>
+				<span class="token punctuation">}</span>
+			<span class="token punctuation">]</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre><div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br></div></div><p>再去访问api<code>/newpage</code>，得到响应</p> <div class="language-json line-numbers-mode"><pre class="language-json"><code><span class="token punctuation">{</span>
+    <span class="token property">&quot;Name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Page&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;Title&quot;</span><span class="token operator">:</span> <span class="token string">&quot;title&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;Url&quot;</span><span class="token operator">:</span> <span class="token string">&quot;hello.com&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><h3 id="集合操作-collections"><a href="#集合操作-collections" class="header-anchor">#</a> 集合操作(collections)</h3> <p>当后端响应集合或数组时，这是一种特殊的操作情况，上述的部分操作可能无法达到你的预期，有两种情况：</p> <ul><li>当整个后端响应都是一个数组而不是对象，你可以尝试<a href="#%E5%8C%85%E8%A3%85%E6%95%B0%E7%BB%84">包装数组</a></li> <li>当您想操作集合中的某个数据，比如类似<code>data.images[0].url</code>，可以参考<a href="#%E6%95%B0%E7%BB%84%E6%93%8D%E4%BD%9C">扁平集合</a></li></ul> <h4 id="包装数组"><a href="#包装数组" class="header-anchor">#</a> 包装数组</h4> <p>后端响应整个都在数组之内</p> <div class="language-json line-numbers-mode"><pre class="language-json"><code><span class="token punctuation">[</span>
+	<span class="token punctuation">{</span>
+		<span class="token property">&quot;a&quot;</span><span class="token operator">:</span> <span class="token number">1</span>
+	<span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token punctuation">{</span>
+		<span class="token property">&quot;b&quot;</span><span class="token operator">:</span> <span class="token number">2</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">]</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><p>而前段想要拿到的是一个对象，应该包裹在<code>{}</code>之内，你可以通过声明<code>&quot;is_collection&quot;: true</code>属性来实现如下效果，该属性是配置在<code>backend</code>层级的</p> <div class="language-json line-numbers-mode"><pre class="language-json"><code><span class="token punctuation">{</span>
+	<span class="token property">&quot;collection&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+		<span class="token punctuation">{</span>
+			<span class="token property">&quot;a&quot;</span><span class="token operator">:</span> <span class="token number">1</span>
+		<span class="token punctuation">}</span><span class="token punctuation">,</span>
+		<span class="token punctuation">{</span>
+			<span class="token property">&quot;b&quot;</span><span class="token operator">:</span> <span class="token number">2</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><p>这个key值<code>collection</code>是<em>Melody</em>默认提供的，当然你可以结合映射(mapping)来更改，示例如下</p> <div class="language-json line-numbers-mode"><pre class="language-json"><code><span class="token punctuation">{</span>
+	<span class="token property">&quot;endpoint&quot;</span><span class="token operator">:</span> <span class="token string">&quot;/list&quot;</span><span class="token punctuation">,</span>
+	<span class="token property">&quot;backends&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+		<span class="token punctuation">{</span>
+			<span class="token property">&quot;url_pattern&quot;</span><span class="token operator">:</span> <span class="token string">&quot;/v1/list&quot;</span><span class="token punctuation">,</span>
+			<span class="token property">&quot;is_collection&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+			<span class="token property">&quot;mapping&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+				<span class="token property">&quot;collection&quot;</span><span class="token operator">:</span> <span class="token string">&quot;list&quot;</span>
+			<span class="token punctuation">}</span><span class="token punctuation">,</span>
+			<span class="token property">&quot;host&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+				<span class="token string">&quot;http://api.com&quot;</span>
+			<span class="token punctuation">]</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><p>得到的响应结构将会变成这样</p> <div class="language-json line-numbers-mode"><pre class="language-json"><code><span class="token punctuation">{</span>
+	<span class="token property">&quot;list&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+		<span class="token punctuation">{</span>
+			<span class="token property">&quot;a&quot;</span><span class="token operator">:</span> <span class="token number">1</span>
+		<span class="token punctuation">}</span><span class="token punctuation">,</span>
+		<span class="token punctuation">{</span>
+			<span class="token property">&quot;b&quot;</span><span class="token operator">:</span> <span class="token number">2</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><h2 id="代理限速"><a href="#代理限速" class="header-anchor">#</a> 代理限速</h2> <p>无论客户端在节点级别生成多少请求流量，您都希望有效的控制<em>Melody</em>与后端的连接，后端的配置与节点层级的配置相似，但是声明在<code>backend</code>层级下</p> <p>配置示例</p> <div class="language-json line-numbers-mode"><div class="highlight-lines"><br><br><br><br><br><br><div class="highlighted"> </div><br><br><br><br><br><br><br><br></div><pre class="language-json"><code><span class="token punctuation">{</span>
+	<span class="token property">&quot;endpoint&quot;</span><span class="token operator">:</span> <span class="token string">&quot;/v1/{test}&quot;</span><span class="token punctuation">,</span>
+	<span class="token property">&quot;backends&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+		<span class="token punctuation">{</span>
+			<span class="token property">&quot;url_pattern&quot;</span><span class="token operator">:</span> <span class="token string">&quot;/v1/{test}&quot;</span><span class="token punctuation">,</span>
+			<span class="token property">&quot;extra_config&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+				<span class="token property">&quot;melody_ratelimit_proxy&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+					<span class="token property">&quot;maxRate&quot;</span><span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">,</span>
+					<span class="token property">&quot;capacity&quot;</span><span class="token operator">:</span> <span class="token number">100</span>
+				<span class="token punctuation">}</span>
+			<span class="token punctuation">}</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre><div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><p>其中有两个参数你可以设置</p> <ul><li><code>maxRate</code> 此后端每秒接受的最大请求数</li> <li><code>capacity</code> 在<a href="https://github.com/granty1/melody/blob/master/docs/%E4%BB%A4%E7%89%8C%E6%A1%B6%E7%AE%97%E6%B3%95.md" target="_blank" rel="noopener noreferrer">令牌桶算法<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>中有<code>bucket capacity == added per second</code></li></ul> <h3 id="maxrate-vs-clientmaxrate"><a href="#maxrate-vs-clientmaxrate" class="header-anchor">#</a> maxRate Vs clientMaxRate</h3> <p>maxRate(无论是在节点层还是后端(代理)层)是一个绝对值，您可以精确的控制允许到达后端或终结点的通信量。在DDoS中，maxRate由于无法接受超出允许范围的流量，因此可以有所帮助。</p> <p>clientMaxRate是对每个客户端的限制，如果您只是想控制总流量，则它用不上，但是这样DDoS会完美的绕过节点层的流量限制，您可以通过设置clientMaxRate来将一些特定的滥用者限制在其限定的额度范围内。</p> <h2 id="断路器"><a href="#断路器" class="header-anchor">#</a> 断路器</h2> <p>为了保持<em>Melody</em>的响应能力，在后端代理的过程中添加了CircuitBreaker(断路器)中间件，通过此组件，当<em>Melody</em>要求的吞吐量超过实际的队长无法正常交付的吞吐量时，断路器机制将检测到故障并通过不发送可能会失败的请求来防止对服务器造成压力。通过防止由于超时等导致的失败请求过多，对于处理网络和其他通信问题也很有用。</p> <p><a href="https://docs.microsoft.com/zh-cn/previous-versions/msp-n-p/dn589784(v=pandp.10)?redirectedfrom=MSDN" target="_blank" rel="noopener noreferrer">断路器模式<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>是通过简单的状态机来实现，监控该后端代理中的所有失败，当他们达到配置的阈值时，断路器将禁止代理更多的流量到后端。</p> <h3 id="怎样运行？"><a href="#怎样运行？" class="header-anchor">#</a> 怎样运行？</h3> <p>断路器通过一系列请求保留与您的后端的连接状态，并在开始时处于<code>close</code>状态，当它在给定的时间间隔(<code>interval</code>)内检测到的错误数达到了您所配置的连续故障数(<code>maxErrors</code>)，断路器将会停止该后端所有的代理进入<code>open</code>状态，即断开所有与后端所有的交互，进行下一个N秒(<code>timeout</code>)的等待，等待时间窗口后，断路器将进入到<code>half-open</code>状态，该状态下一旦检测到代理错误将立即回到<code>open</code>状态等待时间窗口，如果检测到代理成功，则断路器恢复到<code>close</code>状态</p> <h3 id="断路器的三种状态"><a href="#断路器的三种状态" class="header-anchor">#</a> 断路器的三种状态</h3> <p><img src="/melody-docs/circuitbreaker.png" alt="断路器"></p> <ul><li><code>Close</code> 这是正常状态，当电路闭合时，电流不间断流动，并允许与服务器端连接交互</li> <li><code>Half-Open</code> 当系统遇到重复的问题时，仅允许进行必要的连接以测试服务器</li> <li><code>Open</code> 当电路段开时，不允许与服务器进行连接交互</li></ul> <h3 id="断路器状态转换示意图"><a href="#断路器状态转换示意图" class="header-anchor">#</a> 断路器状态转换示意图</h3> <p><img src="/melody-docs/circuitbreaker_status.png" alt="断路器状态转换图"></p> <h3 id="配置断路器"><a href="#配置断路器" class="header-anchor">#</a> 配置断路器</h3> <p><em>Melody</em>将断路器作为中间件提供，您只需要在<code>backend</code>层的<code>extra_config</code>进行配置即可启用，具体配置如下所示</p> <div class="language-json line-numbers-mode"><pre class="language-json"><code><span class="token punctuation">{</span>
+	<span class="token property">&quot;endpoint&quot;</span><span class="token operator">:</span> <span class="token string">&quot;/breaker&quot;</span><span class="token punctuation">,</span>
+	<span class="token property">&quot;backends&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+		<span class="token punctuation">{</span>
+			<span class="token property">&quot;url_pattern&quot;</span><span class="token operator">:</span> <span class="token string">&quot;/b&quot;</span><span class="token punctuation">,</span>
+			<span class="token property">&quot;host&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+				<span class="token string">&quot;http://api.com&quot;</span>
+			<span class="token punctuation">]</span><span class="token punctuation">,</span>
+			<span class="token property">&quot;extra_config&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+				<span class="token property">&quot;melody_circuitbreaker&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+				    <span class="token comment">// 给定时间间隔(秒)</span>
+				    <span class="token property">&quot;interval&quot;</span><span class="token operator">:</span> <span class="token number">60</span><span class="token punctuation">,</span>
+				    <span class="token comment">// 等待时间窗口(秒)</span>
+				    <span class="token property">&quot;timeout&quot;</span><span class="token operator">:</span> <span class="token number">10</span><span class="token punctuation">,</span>
+				    <span class="token comment">// 连续故障数</span>
+				    <span class="token property">&quot;maxErrors&quot;</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+				    <span class="token comment">// 断路器状态改变时，是否log</span>
+				    <span class="token property">&quot;logStatusChange&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span>
+				<span class="token punctuation">}</span>
+			<span class="token punctuation">}</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br></div></div><h2 id="编码支持"><a href="#编码支持" class="header-anchor">#</a> 编码支持</h2> <p><em>Melody</em>可以解析来自使用不同编码的后端响应，例如：</p> <ul><li>JSON</li> <li>XML</li> <li>RSS</li> <li>String</li></ul> <p>此外还有特殊的<a href="/melody-docs/melody/document/endpoint.html#无操作代理">NO-OP</a></p> <p>在每个<code>backend</code>层级都可以配置其专属的编码器，最终在节点响应中统一编码</p> <p>下面的例子演示这一功能</p> <div class="language-json line-numbers-mode"><pre class="language-json"><code><span class="token punctuation">{</span>
+	<span class="token property">&quot;version&quot;</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+	<span class="token property">&quot;endpoints&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+		<span class="token punctuation">{</span>
+			<span class="token property">&quot;endpoint&quot;</span><span class="token operator">:</span> <span class="token string">&quot;/abc&quot;</span><span class="token punctuation">,</span>
+			<span class="token property">&quot;output_encoding&quot;</span><span class="token operator">:</span> <span class="token string">&quot;json&quot;</span><span class="token punctuation">,</span>
+			<span class="token property">&quot;backends&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+				<span class="token punctuation">{</span>
+					<span class="token property">&quot;url_pattern&quot;</span><span class="token operator">:</span> <span class="token string">&quot;/a&quot;</span><span class="token punctuation">,</span>
+					<span class="token property">&quot;encoding&quot;</span><span class="token operator">:</span> <span class="token string">&quot;json&quot;</span><span class="token punctuation">,</span>
+					<span class="token property">&quot;host&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+						<span class="token string">&quot;http://api.com&quot;</span>
+					<span class="token punctuation">]</span>
+				<span class="token punctuation">}</span><span class="token punctuation">,</span>
+				<span class="token punctuation">{</span>
+					<span class="token property">&quot;url_pattern&quot;</span><span class="token operator">:</span> <span class="token string">&quot;/b&quot;</span><span class="token punctuation">,</span>
+					<span class="token property">&quot;encoding&quot;</span><span class="token operator">:</span> <span class="token string">&quot;xml&quot;</span><span class="token punctuation">,</span>
+					<span class="token property">&quot;host&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+						<span class="token string">&quot;http://api.com&quot;</span>
+					<span class="token punctuation">]</span>
+				<span class="token punctuation">}</span><span class="token punctuation">,</span>
+				<span class="token punctuation">{</span>
+					<span class="token property">&quot;url_pattern&quot;</span><span class="token operator">:</span> <span class="token string">&quot;/c&quot;</span><span class="token punctuation">,</span>
+					<span class="token property">&quot;encoding&quot;</span><span class="token operator">:</span> <span class="token string">&quot;rss&quot;</span><span class="token punctuation">,</span>
+					<span class="token property">&quot;host&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+						<span class="token string">&quot;http://api.com&quot;</span>
+					<span class="token punctuation">]</span>
+				<span class="token punctuation">}</span>
+			<span class="token punctuation">]</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br></div></div><p>最终来自于<code>/a</code>、<code>/b</code>、<code>/c</code>的三种编码的数据将被聚合成<code>json</code>响应</p> <h2 id="节点镜像"><a href="#节点镜像" class="header-anchor">#</a> 节点镜像</h2> <p>部署在测试环境或生产环境上的一套结构，不可能一直不更新，每当跟下，新老接口的集成总会导致大大小小的问题，往往这些问题很难排查。因此新街口的替换需要谨慎操作，如果直接投入使用就太冒险了，因为可能影响你的所有客户端。</p> <p>节点镜像中间件，允许你测试在新功能增加之后的后端，<em>Melody</em>实际回去请求你的后端，但是响应只会作为镜像并且会被忽略，在最终的节点响应中也不会出镜像响应。</p> <p>通过节点镜像，你可以：</p> <ul><li>通过log测试应用程序的错误</li> <li>测试应用程序的性能</li> <li>对比新旧服务的性能</li> <li>检索其他可能由新接口导致的运行时问题</li></ul> <p>要启用节点镜像中间件，你只需要在<code>backend</code>层级的<code>extra_config</code>进行配置</p> <div class="language-json line-numbers-mode"><pre class="language-json"><code><span class="token punctuation">{</span>
+	<span class="token property">&quot;endpoint&quot;</span><span class="token operator">:</span> <span class="token string">&quot;/shadow_backend&quot;</span><span class="token punctuation">,</span>
+	<span class="token property">&quot;backends&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+		<span class="token punctuation">{</span>
+			<span class="token property">&quot;url_pattern&quot;</span><span class="token operator">:</span> <span class="token string">&quot;/one&quot;</span><span class="token punctuation">,</span>
+			<span class="token property">&quot;host&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+				<span class="token string">&quot;http://api-01.com&quot;</span>
+			<span class="token punctuation">]</span><span class="token punctuation">,</span>
+			<span class="token property">&quot;extra_config&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+				<span class="token property">&quot;melody_proxy&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+					<span class="token property">&quot;shadow&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span>
+				<span class="token punctuation">}</span>
+			<span class="token punctuation">}</span>
+		<span class="token punctuation">}</span><span class="token punctuation">,</span>
+		<span class="token punctuation">{</span>
+			<span class="token property">&quot;url_pattern&quot;</span><span class="token operator">:</span> <span class="token string">&quot;/one&quot;</span><span class="token punctuation">,</span>
+			<span class="token property">&quot;host&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+				<span class="token string">&quot;http://api-02.com&quot;</span>
+			<span class="token punctuation">]</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br></div></div><p>通过上述配置，在<code>http://api-01.com</code>和<code>http://api-02.com</code>都会有请求<code>/one</code>的日志打印，但是在最终的节点响应中，却只会有<code>http://api-02.com/one</code>的响应，并且响应头中的字段会表示请求已完整。</p> <h2 id="数组操作"><a href="#数组操作" class="header-anchor">#</a> 数组操作</h2> <p>数组操作中间件将数组结构展平和扩展来操作数组，该过程由flatmap组件完成，可以使您专注于要执行的操作类型。</p> <div class="custom-block warning"><p class="custom-block-title">注意</p> <p>只有当响应是数组结构时，才能使用该中间件，否则如果响应为一般对象时，使用其他数据处理组件更为合适。</p></div> <p>数组操作有两种操作类型：</p> <ul><li><code>move</code> 将元素从一个地方移动、嵌入、提取到另一个地方</li> <li><code>del</code> 删除特定的元素</li></ul> <p>上述两种配置都可以通过<em>Melody</em>中定义的表达式去定义
+每一个操作被定义为两个属性的对象：<code>type</code>和<code>args</code></p> <p>定义操作的具体配置如下:</p> <div class="language-json line-numbers-mode"><pre class="language-json"><code><span class="token punctuation">{</span>
+	<span class="token property">&quot;extra_config&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+		<span class="token property">&quot;melody_proxy&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+			<span class="token property">&quot;flatmap_filter&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+				<span class="token punctuation">{</span>
+					<span class="token property">&quot;type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;move&quot;</span><span class="token punctuation">,</span>
+					<span class="token property">&quot;args&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;source_in_collection&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;target_in_collection&quot;</span><span class="token punctuation">]</span>
+				<span class="token punctuation">}</span><span class="token punctuation">,</span>
+				<span class="token punctuation">{</span>
+					<span class="token property">&quot;type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;del&quot;</span><span class="token punctuation">,</span>
+					<span class="token property">&quot;args&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;target_in_collection&quot;</span><span class="token punctuation">]</span>
+				<span class="token punctuation">}</span>
+			<span class="token punctuation">]</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br></div></div><h3 id="运作方式"><a href="#运作方式" class="header-anchor">#</a> 运作方式</h3> <p>操作定义如下</p> <ul><li>移动：将元素移动或重命名
+<ul><li><code>&quot;type&quot;: &quot;move&quot;</code></li> <li><code>&quot;args&quot;: [&quot;source_in_collection&quot;, &quot;target_in_collection&quot;]</code></li></ul></li> <li>删除：删除指定元素
+<ul><li><code>&quot;type&quot;: &quot;del&quot;</code></li> <li><code>&quot;args&quot;: [&quot;target_in_collection&quot;]</code></li></ul></li></ul> <h3 id="参考表"><a href="#参考表" class="header-anchor">#</a> 参考表</h3> <p>如下响应结构：</p> <div class="language-json line-numbers-mode"><pre class="language-json"><code><span class="token punctuation">{</span>
+	<span class="token property">&quot;a&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+		<span class="token punctuation">{</span>
+			<span class="token property">&quot;b1&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+				<span class="token punctuation">{</span>
+					<span class="token property">&quot;c&quot;</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+					<span class="token property">&quot;d&quot;</span><span class="token operator">:</span> <span class="token string">&quot;foo&quot;</span>
+				<span class="token punctuation">}</span><span class="token punctuation">,</span>
+				<span class="token punctuation">{</span>
+					<span class="token property">&quot;c&quot;</span><span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+					<span class="token property">&quot;d&quot;</span><span class="token operator">:</span> <span class="token string">&quot;bar&quot;</span>
+				<span class="token punctuation">}</span>
+			<span class="token punctuation">]</span><span class="token punctuation">,</span>
+			<span class="token property">&quot;b2&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span>
+		<span class="token punctuation">}</span><span class="token punctuation">,</span>
+		<span class="token punctuation">{</span>
+			<span class="token property">&quot;b1&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+				<span class="token punctuation">{</span>
+					<span class="token property">&quot;c&quot;</span><span class="token operator">:</span> <span class="token number">3</span><span class="token punctuation">,</span>
+					<span class="token property">&quot;d&quot;</span><span class="token operator">:</span> <span class="token string">&quot;var&quot;</span>
+				<span class="token punctuation">}</span>
+			<span class="token punctuation">]</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br></div></div><p>表达式对应值</p> <table><thead><tr><th>表达式</th> <th>值</th></tr></thead> <tbody><tr><td><code>a</code></td> <td>a对应的整个数组</td></tr> <tr><td><code>a.1</code></td> <td>a数组中的第二个对象{&quot;b1&quot;: [{&quot;c&quot;:3, &quot;d&quot;: &quot;var&quot;}]}</td></tr> <tr><td><code>a.0.b1.0.d</code></td> <td>&quot;foo&quot;</td></tr> <tr><td><code>a.1.b1.0.d</code></td> <td>&quot;var&quot;</td></tr> <tr><td><code>a.*.b1.*.d</code></td> <td>&quot;foo&quot; &quot;bar&quot; &quot;var&quot;</td></tr> <tr><td><code>a.*.*.*.d</code></td> <td>&quot;foo&quot; &quot;bar&quot; &quot;var&quot;</td></tr></tbody></table></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">3/16/2020, 10:11:23 AM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/melody-docs/melody/document/endpoint.html" class="prev">
+        节点(Endpoint)
+      </a></span> <!----></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/melody-docs/assets/js/app.3212779a.js" defer></script><script src="/melody-docs/assets/js/2.2ab4c226.js" defer></script><script src="/melody-docs/assets/js/7.f72097ed.js" defer></script>
+  </body>
+</html>
